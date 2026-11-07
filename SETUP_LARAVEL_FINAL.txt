@@ -1,0 +1,21 @@
+SETUP (Laragon / Windows)
+
+1. Extract this folder into C:\\laragon\\www\\LARAVEL_FINAL
+2. Start Apache and MySQL in Laragon.
+3. In phpMyAdmin or HeidiSQL, create a database named: povutharasv9
+4. Confirm the MySQL port in Laragon. The supplied .env uses 3306. If your MySQL uses 3307, change DB_PORT=3306 to DB_PORT=3307.
+5. Open a terminal in the project folder and run:
+
+   php artisan optimize:clear
+   php artisan migrate
+   php artisan serve
+
+6. Open http://127.0.0.1:8000
+
+Register a new account, then the app should take you to the Student Directory.
+
+IMPORTANT:
+- The original archive had no database migration files, and its authentication controller redirected to /products even though no /products route existed.
+- This project expects a MySQL database called povutharasv9. If you already have a database with existing tables/data, back it up before running migrations.
+- The migrations create users, departments, and students tables. They do not insert department records; add departments before creating students.
+- If Composer dependencies are missing, run: composer install
